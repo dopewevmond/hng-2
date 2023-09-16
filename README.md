@@ -11,6 +11,7 @@ This documentation provides an overview of how to use the Person API, including 
   - [Delete Person](#delete-person)
 - [Request and Response Formats](#request-and-response-formats)
 - [Sample Usage](#sample-usage)
+- [Testing](#testing)
 
 ---
 
@@ -135,6 +136,12 @@ DELETE /api/person/123
 **Response**
 ```
 HTTP/1.1 204 No Content
+```
+
+## Testing
+Run the command below to test the endpoints. Make sure the `MONGO_TEST_URI` environment is set
+```bash
+yarn test
 ```
 
 ## UML and ER diagram
