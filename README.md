@@ -69,9 +69,7 @@ The API responds with JSON objects that contain person information in the follow
 ```json
 {
 "_id": "unique_id",
-"name": "Person Name",
-"email": "person@example.com",
-"age": 30
+"name": "Person Name"
 }
 ```
 
@@ -88,9 +86,7 @@ GET /api/person/123
 ```json
 {
   "_id": "123",
-  "name": "John Doe",
-  "email": "john.doe@example.com",
-  "age": 35
+  "name": "John Doe"
 }
 ```
 
@@ -101,18 +97,14 @@ PUT /api/person/123
 Content-Type: application/json
 
 {
-  "name": "Updated Name",
-  "email": "updated@example.com",
-  "age": 40
+  "name": "Updated Name"
 }
 ```
 **Response**
 ```json
 {
   "_id": "123",
-  "name": "Updated Name",
-  "email": "updated@example.com",
-  "age": 40
+  "name": "Updated Name"
 }
 ```
 
@@ -123,18 +115,14 @@ POST /api/person
 Content-Type: application/json
 
 {
-  "name": "New Person",
-  "email": "new@example.com",
-  "age": 25
+  "name": "New Person"
 }
 ```
 **Response**
 ```json
 {
   "_id": "456",
-  "name": "New Person",
-  "email": "new@example.com",
-  "age": 25
+  "name": "New Person"
 }
 ```
 

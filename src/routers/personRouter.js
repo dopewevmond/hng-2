@@ -21,12 +21,10 @@ personRouter.get("/:id", async (req, res, next) => {
 
 personRouter.put("/:id", validate(personSchema), async (req, res, next) => {
   try {
-    const { name, email, age } = req.body;
+    const { name } = req.body;
     const updated = await updatePerson({
       _id: req.params.id,
       name,
-      email,
-      age: Number(age),
     });
     res.json(updated);
   } catch (err) {
@@ -36,8 +34,8 @@ personRouter.put("/:id", validate(personSchema), async (req, res, next) => {
 
 personRouter.post("/", validate(personSchema), async (req, res, next) => {
   try {
-    const { name, email, age } = req.body;
-    const person = await createPerson({ name, email, age: Number(age) });
+    const { name } = req.body;
+    const person = await createPerson({ name });
     res.status(201).json(person);
   } catch (err) {
     next(err);

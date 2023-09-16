@@ -1,8 +1,8 @@
 const HttpException = require("../exceptions/httpexception");
 const PersonModel = require('../models/Person')
 
-const createPerson = async ({ name, email, age }) => {
-  const person = await PersonModel.create({ name, email, age })
+const createPerson = async ({ name }) => {
+  const person = await PersonModel.create({ name })
   return person;
 }
 
@@ -12,13 +12,14 @@ const getPerson = async (_id) => {
   return foundPerson
 }
 
-const updatePerson = async ({ _id, name, email, age }) => {
-  const updated = await PersonModel.findOneAndUpdate({ _id }, { name, email, age }, { new: true })
+const updatePerson = async ({ _id, name }) => {
+  const updated = await PersonModel.findOneAndUpdate({ _id }, { name }, { new: true })
   return updated
 }
 
 const deletePerson = async (_id) => {
-  await PersonModel.findByIdAndRemove(_id)
+  const res = await PersonModel.findByIdAndRemove(_id)
+  if (res == null) throw new HttpException(400, `Delete failed. Person with ID [${_id}] does not exist`)
 }
 
 module.exports = {
